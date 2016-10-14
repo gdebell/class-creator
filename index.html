@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="classCreator">
+  <head>
+    <meta charset="utf-8">
+    <title>Class Creator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body ng-init=" courses = [
+    {id: 1,
+    className: 'Biology',
+    teacher: 'Ms.DeBell',
+    students: [
+          {id:1, name:'John Doe',grade: 'C', classID: 1},
+          {id:2, name:'Sussie Buttercup',grade: 'C', classID: 1},
+          {id:3, name:'Alice Adams',grade: 'C', classID: 1}]
+    }, {id: 2,
+      className: 'Physical Science',
+      teacher: 'Mrs. Koldenhoven',
+      students: [
+          {id:4, name:'Erin Smith',grade: 'C', classID: 2},
+          {id:5, name:'Ida Smalls',grade: 'C', classID: 2}]
+    }]">
+
+    <h1>Class Creator</h1>
+    <hr>
+    <div ng-controller="GradeController as grade">
+      <div ng-repeat="class in courses">
+        <p>Class Name: {{ class.className }} </p>
+        <p>Teacher Name: {{ class.teacher }} </p>
+        <p>Students: {{ class.students.length }} </p>
+        <div ng-repeat="student in class.students">
+          <ul>
+            <li> {{ student.name}}  ( {{ student.grade }} )
+            <button ng-click="grade.increaseGrade(student.grade)"> + </button>
+            <button ng-click="grade.decreaseGrade(student.grade)"> - </button>
+            </li>
+          </ul>
+        </div></br></br>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+  </body>
+</html>
+
+
+
+
+
+ <body ng-init=" pizzas = [
+  {id: 1,name: 'Cheese Pizza',cost: 3.00},
+  {id: 2,name: 'Meatball Pizza',cost: 4.00},
+  {id: 3,name: 'Pepperoni Pizza',cost: 5.00}
+  ]">
